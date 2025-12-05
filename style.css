@@ -1,359 +1,365 @@
-/* =============== */
-/*  GLOBAL RESET   */
-/* =============== */
+/* ===================== */
+/*  KOSUKE-STYLE THEME   */
+/* ===================== */
 
+/* Reset */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* =============== */
-/*  BASE STYLES    */
-/* =============== */
-
 :root {
-    --bg-page: #f3f4f6;
-    --bg-card: #ffffff;
-    --text-main: #111827;
-    --text-muted: #6b7280;
-    --border-soft: #e5e7eb;
-    --accent: #111827;
-    --accent-soft: #9ca3af;
-    --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.06);
-    --radius-card: 20px;
+    --bg-hero: #d7cec6;          /* light beige */
+    --bg-page: #111111;          /* behind sections */
+    --bg-section: #111111;
+    --bg-card: #181818;
+    --bg-chip: #e0d4c8;
+
+    --text-main: #0c0c0c;
+    --text-muted: #5f5a55;
+    --text-on-dark: #f3f4f6;
+    --text-on-dark-muted: #a1a1aa;
+
+    --accent-dark: #111111;
+    --accent-light: #f3f4f6;
+
+    --border-soft: rgba(0,0,0,0.08);
+    --border-dark: rgba(255,255,255,0.06);
+
+    --radius-hero-img: 32px;
+    --radius-card: 24px;
     --radius-pill: 999px;
-    --transition-fast: 180ms ease-out;
+
+    --shadow-soft: 0 28px 60px rgba(0,0,0,0.35);
+
     --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
         "Segoe UI", sans-serif;
 }
 
+/* ===== Base ===== */
+
 body {
     font-family: var(--font-sans);
     line-height: 1.6;
+    background: var(--bg-hero);
     color: var(--text-main);
-    background-color: var(--bg-page);
 }
 
-/* Main shell */
+/* Let the beige hero fill the screen width */
 .container {
-    width: 92%;
-    max-width: 1100px;
-    margin: 40px auto 48px;
-    padding: 32px 28px 40px;
-    background-color: var(--bg-card);
-    border-radius: 32px;
-    border: 1px solid #e5e7eb;
-    box-shadow: var(--shadow-soft);
+    width: 100%;
+    max-width: 1160px;
+    margin: 0 auto 60px;
+    padding: 40px 40px 60px;
 }
 
-/* ================= */
-/*  HEADER / HERO    */
-/* ================= */
+/* ===================== */
+/*       HERO HEADER     */
+/* ===================== */
 
 header {
-    background: transparent;
+    background: var(--bg-hero);
     color: var(--text-main);
-    padding-bottom: 28px;
-    border-bottom: 1px solid var(--border-soft);
+    padding-top: 12px;
+    padding-bottom: 60px;
 }
 
-/* Hero layout: text + image */
+/* two-column hero like screenshot */
 .intro {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
+    display: grid;
+    grid-template-columns: minmax(0, 1.6fr) minmax(260px, 1.2fr);
+    gap: 40px;
     align-items: center;
+}
+
+/* Wrap text in optional .intro-text if you want, but not required */
+.intro-text {
+    max-width: 560px;
 }
 
 header h1 {
-    font-size: 2.4rem;
-    letter-spacing: 0.03em;
-    font-weight: 700;
-    margin-bottom: 4px;
+    font-size: clamp(2.6rem, 4vw, 3.4rem);
+    font-weight: 800;
+    letter-spacing: 0.02em;
+    margin-bottom: 16px;
 }
 
 .subtitle {
-    font-style: normal;
-    margin-top: 4px;
-    font-size: 0.98rem;
+    font-size: 0.95rem;
+    max-width: 380px;
     color: var(--text-muted);
-    max-width: 480px;
 }
 
-/* Avatar / photo */
+/* Hero description paragraph (if you have one) */
+.hero-description {
+    margin-top: 24px;
+    font-size: 0.9rem;
+    max-width: 460px;
+    color: var(--text-muted);
+}
+
+/* Hero primary button (e.g. “View resume”) */
+.hero-actions {
+    margin-top: 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.btn-primary {
+    background: #111111;
+    color: #f9fafb;
+    border-radius: 999px;
+    padding: 12px 26px;
+    border: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 22px 40px rgba(0,0,0,0.35);
+    text-decoration: none;
+}
+
+.btn-primary span.arrow {
+    font-size: 1rem;
+    transform: translateY(1px);
+}
+
+.btn-primary:hover {
+    opacity: 0.92;
+}
+
+/* Little location text under hero button if you want it */
+.hero-meta {
+    margin-top: 20px;
+    font-size: 0.82rem;
+    color: var(--text-muted);
+}
+
+/* Photo on the right */
 header img {
-    width: 180px;
-    height: 240px;
-    border-radius: 18px;
+    width: 100%;
+    max-width: 360px;
+    justify-self: end;
+    height: auto;
+    border-radius: var(--radius-hero-img);
     object-fit: cover;
-    border: 1px solid var(--border-soft);
-    box-shadow: 0 16px 40px rgba(15, 23, 42, 0.25);
-    background-color: #d1d5db;
-    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+    border: 1px solid rgba(255,255,255,0.8);
+    box-shadow: var(--shadow-soft);
 }
 
-header img:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 22px 50px rgba(15, 23, 42, 0.35);
-}
-
-/* File input under image */
+/* file input under photo */
 #photo-upload {
-    margin-top: 8px;
-    font-size: 0.78rem;
+    display: block;
+    margin-top: 12px;
+    font-size: 0.8rem;
     color: var(--text-muted);
 }
 
-/* Hero on larger screens: side by side */
-@media (min-width: 900px) {
-    .intro {
-        flex-direction: row-reverse;
-        align-items: center;
-        justify-content: space-between;
-    }
-
-    .intro-text {
-        max-width: 520px;
-        text-align: left;
-    }
-}
-
-/* optional wrapper if you add <div class="intro-text"> around text in header */
-.intro-text {
-    text-align: center;
-}
-
-/* ===================== */
-/*  SOCIAL / TOP LINKS   */
-/* ===================== */
-
+/* Social bar under name (LinkedIn / GitHub / Paper) */
 .social-bar {
     display: flex;
-    gap: 14px;
-    align-items: center;
+    gap: 12px;
     flex-wrap: wrap;
-    margin-top: 16px;
-    justify-content: center;
+    margin-top: 18px;
+    font-size: 0.86rem;
 }
 
 .social-bar a {
-    color: var(--text-main);
-    font-weight: 500;
     text-decoration: none;
-    padding: 6px 16px;
+    color: #111111;
+    padding: 7px 14px;
     border-radius: var(--radius-pill);
-    border: 1px solid var(--border-soft);
-    background-color: #f9fafb;
+    background: #f4ece3;
+    border: 1px solid rgba(0,0,0,0.06);
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    font-size: 0.9rem;
-    transition: background var(--transition-fast),
-                border-color var(--transition-fast),
-                transform var(--transition-fast),
-                box-shadow var(--transition-fast),
-                color var(--transition-fast);
 }
 
 .social-bar a::before {
     content: "↗";
-    font-size: 0.72rem;
+    font-size: 0.7rem;
     opacity: 0.7;
 }
 
 .social-bar a:hover {
-    background-color: #111827;
+    background: #111111;
     color: #f9fafb;
-    border-color: #111827;
-    transform: translateY(-1px);
-    box-shadow: 0 12px 26px rgba(15, 23, 42, 0.25);
 }
 
-/* fallback if you still use .links somewhere */
-.links {
-    margin-top: 12px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    justify-content: center;
+/* ============= */
+/*  DARK SECTIONS */
+/* ============= */
+
+/* Everything below hero sits on a dark background like screenshot 2/3 */
+body::after {
+    content: "";
+    position: fixed;
+    inset: 60vh 0 0 0;
+    background: var(--bg-page);
+    z-index: -1;
 }
 
-.links a {
-    color: var(--accent);
-    text-decoration: none;
-    font-weight: 500;
-}
-
-.links a:hover {
-    text-decoration: underline;
-}
-
-/* =============== */
-/*  SECTIONS       */
-/* =============== */
-
+/* Wrap each group (About / Experience / Education / Projects / Skills) */
 section {
-    margin-top: 32px;
+    margin-top: 40px;
+    padding: 32px 32px 30px;
+    background: var(--bg-section);
+    border-radius: 32px;
+    color: var(--text-on-dark);
+    box-shadow: var(--shadow-soft);
 }
 
-/* Section titles */
+/* section headings */
 h2 {
-    margin-bottom: 18px;
-    color: var(--text-main);
-    font-size: 1.3rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
+    font-size: 1.4rem;
     font-weight: 600;
+    margin-bottom: 18px;
+    color: var(--text-on-dark);
 }
 
-/* Subcards: experience, education, project */
+/* ====== Cards (experience / education / projects) ====== */
+
 .experience,
 .education,
 .project {
-    margin-bottom: 20px;
+    margin-bottom: 22px;
     padding: 18px 18px 14px;
     border-radius: var(--radius-card);
-    border: 1px solid var(--border-soft);
-    background-color: #ffffff;
-    box-shadow: 0 10px 28px rgba(15, 23, 42, 0.04);
-    transition: transform var(--transition-fast), box-shadow var(--transition-fast),
-                border-color var(--transition-fast);
-}
-
-.experience:hover,
-.education:hover,
-.project:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 18px 40px rgba(15, 23, 42, 0.09);
-    border-color: #d1d5db;
+    background: var(--bg-card);
+    border: 1px solid var(--border-dark);
 }
 
 /* Titles inside cards */
 .experience h3,
 .education h3,
 .project h3 {
-    font-size: 1.02rem;
+    font-size: 1rem;
     font-weight: 600;
+    margin-bottom: 4px;
+    color: var(--text-on-dark);
+}
+
+.institution {
+    display: block;
+    font-size: 0.88rem;
+    color: var(--text-on-dark-muted);
     margin-bottom: 2px;
 }
 
-/* Institution / company */
-.institution {
-    display: block;
-    font-size: 0.9rem;
-    color: var(--text-muted);
-    margin-bottom: 1px;
-}
-
-/* Date + location */
 .duration-location {
     display: block;
     font-size: 0.8rem;
-    color: #9ca3af;
-    margin-bottom: 6px;
-}
-
-/* Technologies line */
-.technologies {
-    font-size: 0.85rem;
-    color: var(--accent-soft);
+    color: #71717a;
     margin-bottom: 8px;
 }
 
-/* Lists (bullets) */
+.technologies {
+    font-size: 0.84rem;
+    color: #e5e7eb;
+    margin-bottom: 8px;
+}
+
+/* Bullet lists */
 .highlights,
 .details {
     list-style: disc;
-    padding-left: 18px;
-    margin-bottom: 4px;
+    padding-left: 20px;
+    margin-bottom: 6px;
     font-size: 0.9rem;
-    color: #374151;
+    color: #e5e7eb;
 }
 
-/* ======================== */
-/*  TEACHING ASSISTANT TAG  */
-/* ======================== */
-
-/* If you used a dedicated TA highlight div */
+/* Teaching assistant highlight if you’re using .ta-highlight */
 .ta-highlight {
     margin-top: 6px;
-    padding: 8px 10px;
-    border-radius: 999px;
-    background-color: #f3f4f6;
-    font-size: 0.86rem;
-    color: #374151;
     display: inline-flex;
     align-items: center;
     gap: 6px;
+    padding: 6px 12px;
+    border-radius: var(--radius-pill);
+    background: rgba(250, 250, 249, 0.06);
+    font-size: 0.85rem;
+    color: #e5e7eb;
 }
 
 .ta-highlight::before {
     content: "●";
-    font-size: 0.78rem;
-    color: #10b981;
+    font-size: 0.7rem;
+    color: #a3e635;
 }
 
-/* ============== */
-/*  SKILLS GRID   */
-/* ============== */
+/* ===== Skills grid on dark background ===== */
 
 .skills-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
-    gap: 16px;
-    margin-top: 8px;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 18px;
+    margin-top: 10px;
 }
 
 .skill-category {
-    padding: 12px 12px 10px;
-    border-radius: 14px;
-    border: 1px solid var(--border-soft);
-    background-color: #f9fafb;
+    background: #18181b;
+    border-radius: 18px;
+    border: 1px solid var(--border-dark);
+    padding: 14px 14px 10px;
     font-size: 0.9rem;
+    color: #e5e7eb;
 }
 
 .skill-category h4 {
-    margin-bottom: 4px;
-    color: var(--text-main);
+    margin-bottom: 6px;
     font-size: 0.9rem;
     font-weight: 600;
 }
 
-/* ============ */
-/*  FOOTER      */
-/* ============ */
+/* ===== Footer ===== */
 
 footer {
-    margin-top: 36px;
-    padding-top: 18px;
-    border-top: 1px solid var(--border-soft);
+    padding: 24px 0 0;
+    margin-top: 40px;
     text-align: center;
-    font-size: 0.82rem;
-    color: var(--text-muted);
+    font-size: 0.8rem;
+    color: #a1a1aa;
     background: transparent;
 }
 
-/* ================ */
-/*  RESPONSIVE      */
-/* ================ */
+/* ============== */
+/*  RESPONSIVE    */
+/* ============== */
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
     .container {
-        padding: 24px 18px 32px;
-        margin-top: 24px;
+        padding: 28px 20px 48px;
     }
 
-    header h1 {
-        font-size: 2rem;
+    .intro {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 32px;
     }
 
     header img {
-        width: 160px;
-        height: 210px;
+        justify-self: center;
+        max-width: 320px;
+    }
+
+    .intro-text {
+        text-align: left;
+    }
+}
+
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 2.2rem;
     }
 
     section {
-        margin-top: 28px;
+        padding: 24px 18px 22px;
+        border-radius: 26px;
     }
 }
