@@ -46,7 +46,7 @@ body {
     color: var(--text-main);
 }
 
-/* Let the beige hero fill the screen width */
+/* Main content sections wrapper (dark cards) */
 .container {
     width: 100%;
     max-width: 1160px;
@@ -65,6 +65,13 @@ header {
     padding-bottom: 60px;
 }
 
+/* inner wrapper so hero is centered like the Kosuke layout */
+.hero-inner {
+    max-width: 1160px;
+    margin: 0 auto;
+    padding: 40px 40px 60px;
+}
+
 /* two-column hero like screenshot */
 .intro {
     display: grid;
@@ -73,9 +80,26 @@ header {
     align-items: center;
 }
 
-/* Wrap text in optional .intro-text if you want, but not required */
+/* left column: text */
 .intro-text {
     max-width: 560px;
+}
+
+/* right column: image */
+.intro-image {
+    justify-self: end;
+}
+
+/* hero image */
+.intro-image img,
+header img {
+    width: 100%;
+    max-width: 360px;
+    height: auto;
+    border-radius: var(--radius-hero-img);
+    object-fit: cover;
+    border: 1px solid rgba(255,255,255,0.8);
+    box-shadow: var(--shadow-soft);
 }
 
 header h1 {
@@ -91,7 +115,7 @@ header h1 {
     color: var(--text-muted);
 }
 
-/* Hero description paragraph (if you have one) */
+/* Hero description paragraph */
 .hero-description {
     margin-top: 24px;
     font-size: 0.9rem;
@@ -140,19 +164,7 @@ header h1 {
     color: var(--text-muted);
 }
 
-/* Photo on the right */
-header img {
-    width: 100%;
-    max-width: 360px;
-    justify-self: end;
-    height: auto;
-    border-radius: var(--radius-hero-img);
-    object-fit: cover;
-    border: 1px solid rgba(255,255,255,0.8);
-    box-shadow: var(--shadow-soft);
-}
-
-/* file input under photo */
+/* file input under photo (if used) */
 #photo-upload {
     display: block;
     margin-top: 12px;
@@ -196,7 +208,7 @@ header img {
 /*  DARK SECTIONS */
 /* ============= */
 
-/* Everything below hero sits on a dark background like screenshot 2/3 */
+/* Everything below hero sits on a dark background */
 body::after {
     content: "";
     position: fixed;
@@ -205,7 +217,7 @@ body::after {
     z-index: -1;
 }
 
-/* Wrap each group (About / Experience / Education / Projects / Skills) */
+/* Wrap each group (Experience / Education / Projects / Skills) */
 section {
     margin-top: 40px;
     padding: 32px 32px 30px;
@@ -275,7 +287,7 @@ h2 {
     color: #e5e7eb;
 }
 
-/* Teaching assistant highlight if you’re using .ta-highlight */
+/* Teaching assistant highlight (if you decide to use pill style) */
 .ta-highlight {
     margin-top: 6px;
     display: inline-flex;
@@ -338,18 +350,21 @@ footer {
         padding: 28px 20px 48px;
     }
 
+    .hero-inner {
+        padding: 28px 20px 40px;
+    }
+
     .intro {
         grid-template-columns: minmax(0, 1fr);
         gap: 32px;
     }
 
-    header img {
+    .intro-image {
         justify-self: center;
-        max-width: 320px;
     }
 
     .intro-text {
-        text-align: left;
+        max-width: 100%;
     }
 }
 
