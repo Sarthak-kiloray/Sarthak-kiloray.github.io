@@ -121,3 +121,22 @@ footer {
         height: 120px;
     }
 }
+
+.social-bar {
+    display: flex;
+    gap: 22px;
+    align-items: center;
+    font-size: 1.1rem;
+    margin-top: 14px;
+}
+
+.social-bar a {
+    color: #0f172a;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.social-bar a:hover {
+    color: #2563eb;
+}
+

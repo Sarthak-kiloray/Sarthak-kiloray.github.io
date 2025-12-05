@@ -11,13 +11,16 @@
     <header>
         <div class="container intro">
             <img id="profile-img" src="assets/placeholder.png" alt="Profile Photo">
-            <input type="file" id="photo-upload" accept="image/*">
+            <!-- <input type="file" id="photo-upload" accept="image/*"> -->
             <h1>Sarthak Singh</h1>
             <p class="subtitle">Skilled in building scalable and distributed systems. I build LLM‑based RAG pipelines and tools for automation.</p>
             <div class="links">
-                <a href="https://www.linkedin.com/in/sarthak-singh3867" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-                <a href="https://github.com/Sarthak-kiloray" target="_blank" rel="noopener noreferrer">GitHub</a>
-                <a href="https://www.sciencedirect.com" target="_blank" rel="noopener noreferrer">Research Article</a>
+                <div class="social-bar">
+                    <a href="https://www.linkedin.com/in/sarthak-singh3867" target="_blank">🔗 LinkedIn</a>
+                    <a href="https://github.com/Sarthak-kiloray" target="_blank">💻 GitHub</a>
+                    <a href="https://www.sciencedirect.com/science/article/abs/pii/S0301479723025446" target="_blank">📄 Research Article</a>
+                </div>
+                
             </div>
         </div>
     </header>
@@ -67,12 +70,17 @@
             <div class="container">
                 <h2>Education</h2>
                 
-            <div class="education">
-                <h3>Master of Engineering in Software Engineering</h3>
-                <span class="institution">University of Maryland, College Park</span>
-                <span class="duration-location">Jan 2024 – Dec 2025 | College Park, MD, USA | GPA: 3.52/4.0</span>
-                <ul class="details"><li>Teaching Assistant for System Design and Scaling, transformer models, FastAPI and Faiss.</li></ul>
-            </div>
+                <div class="education">
+                    <h3>Master of Engineering in Software Engineering</h3>
+                    <span class="institution">University of Maryland, College Park</span>
+                    <span class="duration-location">Jan 2024 – Dec 2025 | College Park, MD, USA | GPA: 3.6/4.0</span>
+                
+                    <div class="ta-highlight">
+                        <strong>Teaching Assistant:</strong> System Design & Scaling, Transformer Models, FastAPI, Faiss
+                    </div>
+                
+                    <ul class="details"></ul>
+                </div>
             
 
             <div class="education">
@@ -103,9 +111,9 @@
             
 
             <div class="project">
-                <h3><a href="https://github.com/Sarthak-kiloray/DigiSchool" target="_blank" rel="noopener noreferrer">DigiSchool</a></h3>
-                <p class="description">A comprehensive Learning Management System for schools that streamlines educational processes and enhances collaboration among students, teachers, administrators and parents. It provides modules for account management, curriculum management, assessments, performance tracking, collaboration and certificate generation.</p>
-                <p class="technologies"><strong>Technologies:</strong> React.js, Spring Boot, MySQL</p>
+                <h3><a href="https://github.com/Sarthak-kiloray/LLM-RAG_customer_support_voice" target="_blank" rel="noopener noreferrer">RAG Voice Customer Support</a></h3>
+                <p class="description">An end-to-end voice-enabled customer support assistant </p>
+                <p class="technologies"><strong>Technologies:</strong> LangChain for retrieval-augmented generation (RAG) OpenAI for embeddings + generative responses ChromaDB for vector storage Gradio for a clean, interactive UI Custom web scraper (requests + BeautifulSoup) for ingesting documentation</p>
             </div>
             
             </div>
