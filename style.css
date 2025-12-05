@@ -1,0 +1,123 @@
+
+/* Basic reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f9f9f9;
+}
+
+.container {
+    width: 90%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+}
+header {
+    background-color: #0c4a6e;
+    color: #fff;
+    padding: 40px 0;
+    text-align: center;
+}
+
+.intro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+    border: 4px solid #fff;
+}
+
+#photo-upload {
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    font-style: italic;
+    margin-top: 10px;
+}
+
+.links a {
+    color: #ffc107;
+    text-decoration: none;
+    margin: 0 10px;
+    font-weight: bold;
+}
+
+.links a:hover {
+    text-decoration: underline;
+}
+
+section {
+    margin-top: 40px;
+}
+
+h2 {
+    margin-bottom: 20px;
+    color: #0c4a6e;
+    font-size: 1.8rem;
+    border-bottom: 2px solid #0c4a6e;
+    display: inline-block;
+}
+
+.experience, .education, .project {
+    margin-bottom: 30px;
+}
+
+.duration-location {
+    display: block;
+    font-size: 0.9rem;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+.technologies {
+    font-size: 0.9rem;
+    color: #444;
+    margin-bottom: 10px;
+}
+
+.highlights, .details {
+    list-style: disc;
+    padding-left: 20px;
+    margin-bottom: 10px;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.skill-category h4 {
+    margin-bottom: 5px;
+    color: #0c4a6e;
+}
+
+footer {
+    background-color: #0c4a6e;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 40px;
+}
+
+@media (max-width: 600px) {
+    header img {
+        width: 120px;
+        height: 120px;
+    }
+}
