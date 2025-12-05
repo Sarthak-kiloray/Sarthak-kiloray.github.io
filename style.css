@@ -1,120 +1,76 @@
 /* =============== */
-/*  AI / LLM THEME */
+/*  GLOBAL RESET   */
 /* =============== */
 
-:root {
-    --bg-main: #020617;          /* near-black slate */
-    --bg-card: #020617cc;        /* translucent card */
-    --bg-card-solid: #020617;
-    --accent: #22d3ee;           /* cyan */
-    --accent-soft: #38bdf8;
-    --accent-purple: #a855f7;    /* violet */
-    --text-main: #e5e7eb;        /* light gray */
-    --text-muted: #9ca3af;
-    --border-subtle: #1f2937;
-    --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.7);
-    --radius-lg: 18px;
-    --radius-pill: 999px;
-    --transition-fast: 180ms ease-out;
-}
-
-/* Basic reset */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Background: subtle animated gradient */
-body {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+/* =============== */
+/*  BASE STYLES    */
+/* =============== */
+
+:root {
+    --bg-page: #f3f4f6;
+    --bg-card: #ffffff;
+    --text-main: #111827;
+    --text-muted: #6b7280;
+    --border-soft: #e5e7eb;
+    --accent: #111827;
+    --accent-soft: #9ca3af;
+    --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.06);
+    --radius-card: 20px;
+    --radius-pill: 999px;
+    --transition-fast: 180ms ease-out;
+    --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
         "Segoe UI", sans-serif;
+}
+
+body {
+    font-family: var(--font-sans);
     line-height: 1.6;
     color: var(--text-main);
-    background: radial-gradient(circle at top, #0b1120 0, #020617 45%, #020617 100%);
-    min-height: 100vh;
+    background-color: var(--bg-page);
 }
 
-/* Soft container shell */
+/* Main shell */
 .container {
-    width: 90%;
-    max-width: 1000px;
-    margin: 32px auto 40px;
-    padding: 24px 24px 40px;
-    background: linear-gradient(
-        135deg,
-        rgba(15, 23, 42, 0.95),
-        rgba(15, 23, 42, 0.88)
-    );
-    border-radius: 28px;
-    border: 1px solid rgba(148, 163, 184, 0.18);
+    width: 92%;
+    max-width: 1100px;
+    margin: 40px auto 48px;
+    padding: 32px 28px 40px;
+    background-color: var(--bg-card);
+    border-radius: 32px;
+    border: 1px solid #e5e7eb;
     box-shadow: var(--shadow-soft);
-    backdrop-filter: blur(16px);
-    position: relative;
-    overflow: hidden;
 }
 
-/* glowing orb in background */
-.container::before {
-    content: "";
-    position: absolute;
-    inset: -30%;
-    background:
-        radial-gradient(circle at 15% 0, rgba(56, 189, 248, 0.13), transparent 55%),
-        radial-gradient(circle at 80% 20%, rgba(168, 85, 247, 0.13), transparent 55%);
-    opacity: 0.9;
-    pointer-events: none;
-    z-index: -1;
-}
-
-/* ===== Header / Intro ===== */
+/* ================= */
+/*  HEADER / HERO    */
+/* ================= */
 
 header {
     background: transparent;
     color: var(--text-main);
-    padding: 8px 0 24px;
-    text-align: center;
+    padding-bottom: 28px;
+    border-bottom: 1px solid var(--border-soft);
 }
 
+/* Hero layout: text + image */
 .intro {
     display: flex;
     flex-direction: column;
+    gap: 24px;
     align-items: center;
-    gap: 14px;
 }
 
-/* Avatar */
-header img {
-    width: 140px;
-    height: 140px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 3px solid rgba(148, 163, 184, 0.7);
-    box-shadow: 0 0 0 1px rgba(15, 23, 42, 0.8),
-                0 12px 30px rgba(15, 23, 42, 0.9);
-    transition: transform var(--transition-fast), box-shadow var(--transition-fast),
-                border-color var(--transition-fast);
-}
-
-header img:hover {
-    transform: translateY(-3px) scale(1.03);
-    border-color: var(--accent);
-    box-shadow: 0 0 0 1px rgba(34, 211, 238, 0.6),
-                0 18px 45px rgba(15, 23, 42, 1);
-}
-
-/* File input */
-#photo-upload {
-    margin-top: 6px;
-    margin-bottom: 4px;
-    font-size: 0.8rem;
-    color: var(--text-muted);
-}
-
-/* Name + subtitle */
 header h1 {
-    font-size: 2.2rem;
+    font-size: 2.4rem;
     letter-spacing: 0.03em;
+    font-weight: 700;
+    margin-bottom: 4px;
 }
 
 .subtitle {
@@ -122,174 +78,178 @@ header h1 {
     margin-top: 4px;
     font-size: 0.98rem;
     color: var(--text-muted);
+    max-width: 480px;
 }
 
-/* ===== Top Links (social bar / nav) ===== */
+/* Avatar / photo */
+header img {
+    width: 180px;
+    height: 240px;
+    border-radius: 18px;
+    object-fit: cover;
+    border: 1px solid var(--border-soft);
+    box-shadow: 0 16px 40px rgba(15, 23, 42, 0.25);
+    background-color: #d1d5db;
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+header img:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 22px 50px rgba(15, 23, 42, 0.35);
+}
+
+/* File input under image */
+#photo-upload {
+    margin-top: 8px;
+    font-size: 0.78rem;
+    color: var(--text-muted);
+}
+
+/* Hero on larger screens: side by side */
+@media (min-width: 900px) {
+    .intro {
+        flex-direction: row-reverse;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .intro-text {
+        max-width: 520px;
+        text-align: left;
+    }
+}
+
+/* optional wrapper if you add <div class="intro-text"> around text in header */
+.intro-text {
+    text-align: center;
+}
+
+/* ===================== */
+/*  SOCIAL / TOP LINKS   */
+/* ===================== */
 
 .social-bar {
     display: flex;
-    gap: 18px;
+    gap: 14px;
     align-items: center;
-    justify-content: center;
-    font-size: 0.95rem;
-    margin-top: 14px;
     flex-wrap: wrap;
+    margin-top: 16px;
+    justify-content: center;
 }
 
 .social-bar a {
     color: var(--text-main);
     font-weight: 500;
     text-decoration: none;
-    padding: 6px 14px;
+    padding: 6px 16px;
     border-radius: var(--radius-pill);
-    border: 1px solid rgba(148, 163, 184, 0.35);
-    background: radial-gradient(circle at top left, #0b1120, #020617);
-    box-shadow: 0 0 0 1px rgba(15, 23, 42, 1);
+    border: 1px solid var(--border-soft);
+    background-color: #f9fafb;
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    transition: background var(--transition-fast), border-color var(--transition-fast),
-                transform var(--transition-fast), box-shadow var(--transition-fast),
-                color var(--transition-fast), text-shadow var(--transition-fast);
+    font-size: 0.9rem;
+    transition: background var(--transition-fast),
+                border-color var(--transition-fast),
+                transform var(--transition-fast),
+                box-shadow var(--transition-fast),
+                color var(--transition-fast);
 }
 
 .social-bar a::before {
-    content: "●";
-    font-size: 0.6rem;
-    color: var(--accent);
+    content: "↗";
+    font-size: 0.72rem;
+    opacity: 0.7;
 }
 
 .social-bar a:hover {
-    background: radial-gradient(circle at top left, #0f172a, #020617);
-    border-color: var(--accent-soft);
+    background-color: #111827;
+    color: #f9fafb;
+    border-color: #111827;
     transform: translateY(-1px);
-    color: var(--accent-soft);
-    text-shadow: 0 0 8px rgba(56, 189, 248, 0.7);
+    box-shadow: 0 12px 26px rgba(15, 23, 42, 0.25);
 }
 
-/* Also keep generic .links if you use that block somewhere else */
+/* fallback if you still use .links somewhere */
 .links {
     margin-top: 12px;
     display: flex;
     flex-wrap: wrap;
-    gap: 12px;
+    gap: 10px;
     justify-content: center;
 }
 
 .links a {
-    color: var(--accent-soft);
+    color: var(--accent);
     text-decoration: none;
     font-weight: 500;
-    transition: color var(--transition-fast), text-shadow var(--transition-fast);
 }
 
 .links a:hover {
-    color: var(--accent);
-    text-shadow: 0 0 8px rgba(34, 211, 238, 0.8);
+    text-decoration: underline;
 }
 
-/* ========= Sections ========= */
+/* =============== */
+/*  SECTIONS       */
+/* =============== */
 
 section {
     margin-top: 32px;
-    padding: 20px 18px 22px;
-    background: linear-gradient(
-        135deg,
-        rgba(15, 23, 42, 0.96),
-        rgba(15, 23, 42, 0.9)
-    );
-    border-radius: 20px;
-    border: 1px solid rgba(30, 64, 175, 0.28);
-    box-shadow: 0 16px 40px rgba(15, 23, 42, 0.85);
 }
 
-/* Section headings with glowing underline */
+/* Section titles */
 h2 {
     margin-bottom: 18px;
-    color: #f9fafb;
-    font-size: 1.45rem;
-    letter-spacing: 0.04em;
+    color: var(--text-main);
+    font-size: 1.3rem;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
-    position: relative;
-    display: inline-block;
+    font-weight: 600;
 }
 
-h2::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -6px;
-    width: 100%;
-    height: 2px;
-    background: linear-gradient(90deg, var(--accent), var(--accent-purple));
-    box-shadow: 0 0 10px rgba(34, 211, 238, 0.7);
-}
-
-/* ===== Cards: Experience / Education / Projects ===== */
-
+/* Subcards: experience, education, project */
 .experience,
 .education,
 .project {
-    margin-bottom: 22px;
-    padding: 16px 16px 14px;
-    border-radius: 16px;
-    background: radial-gradient(circle at top left, #020617, #020617dd);
-    border: 1px solid var(--border-subtle);
-    position: relative;
-    overflow: hidden;
+    margin-bottom: 20px;
+    padding: 18px 18px 14px;
+    border-radius: var(--radius-card);
+    border: 1px solid var(--border-soft);
+    background-color: #ffffff;
+    box-shadow: 0 10px 28px rgba(15, 23, 42, 0.04);
     transition: transform var(--transition-fast), box-shadow var(--transition-fast),
                 border-color var(--transition-fast);
-}
-
-.experience::before,
-.education::before,
-.project::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(120deg,
-        rgba(56, 189, 248, 0.1),
-        transparent 40%,
-        rgba(168, 85, 247, 0.13),
-        transparent 75%);
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity var(--transition-fast);
 }
 
 .experience:hover,
 .education:hover,
 .project:hover {
     transform: translateY(-3px);
-    box-shadow: 0 18px 38px rgba(15, 23, 42, 0.95);
-    border-color: rgba(56, 189, 248, 0.55);
-}
-
-.experience:hover::before,
-.education:hover::before,
-.project:hover::before {
-    opacity: 1;
+    box-shadow: 0 18px 40px rgba(15, 23, 42, 0.09);
+    border-color: #d1d5db;
 }
 
 /* Titles inside cards */
 .experience h3,
 .education h3,
 .project h3 {
-    font-size: 1.1rem;
-    margin-bottom: 4px;
-    color: #e5e7eb;
-}
-
-.institution {
-    display: block;
-    font-size: 0.95rem;
-    color: var(--text-muted);
+    font-size: 1.02rem;
+    font-weight: 600;
     margin-bottom: 2px;
 }
 
+/* Institution / company */
+.institution {
+    display: block;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-bottom: 1px;
+}
+
+/* Date + location */
 .duration-location {
     display: block;
-    font-size: 0.84rem;
+    font-size: 0.8rem;
     color: #9ca3af;
     margin-bottom: 6px;
 }
@@ -297,103 +257,103 @@ h2::after {
 /* Technologies line */
 .technologies {
     font-size: 0.85rem;
-    color: #cbd5f5;
+    color: var(--accent-soft);
     margin-bottom: 8px;
 }
 
-/* Lists */
+/* Lists (bullets) */
 .highlights,
 .details {
     list-style: disc;
     padding-left: 18px;
-    margin-bottom: 6px;
-    font-size: 0.92rem;
-    color: #d1d5db;
+    margin-bottom: 4px;
+    font-size: 0.9rem;
+    color: #374151;
 }
 
-/* Teaching assistant highlight (if you use .ta-highlight) */
+/* ======================== */
+/*  TEACHING ASSISTANT TAG  */
+/* ======================== */
+
+/* If you used a dedicated TA highlight div */
 .ta-highlight {
-    background: rgba(15, 23, 42, 0.9);
-    border-left: 4px solid var(--accent);
+    margin-top: 6px;
     padding: 8px 10px;
-    border-radius: 10px;
-    font-size: 0.93rem;
-    color: #e5e7eb;
-    margin: 6px 0 4px;
+    border-radius: 999px;
+    background-color: #f3f4f6;
+    font-size: 0.86rem;
+    color: #374151;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
 }
 
-/* ===== Skills Grid ===== */
+.ta-highlight::before {
+    content: "●";
+    font-size: 0.78rem;
+    color: #10b981;
+}
+
+/* ============== */
+/*  SKILLS GRID   */
+/* ============== */
 
 .skills-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
-    gap: 18px;
-    margin-top: 10px;
+    gap: 16px;
+    margin-top: 8px;
 }
 
 .skill-category {
-    padding: 14px 12px;
+    padding: 12px 12px 10px;
     border-radius: 14px;
-    background: linear-gradient(140deg, #020617, #020617f2);
-    border: 1px solid rgba(51, 65, 85, 0.9);
-    box-shadow: 0 12px 30px rgba(15, 23, 42, 0.85);
+    border: 1px solid var(--border-soft);
+    background-color: #f9fafb;
     font-size: 0.9rem;
 }
 
 .skill-category h4 {
-    margin-bottom: 6px;
-    color: var(--accent-soft);
-    font-size: 0.95rem;
-    letter-spacing: 0.02em;
+    margin-bottom: 4px;
+    color: var(--text-main);
+    font-size: 0.9rem;
+    font-weight: 600;
 }
 
-/* Small labels (like section tags, if any) */
-.tag {
-    display: inline-block;
-    padding: 3px 10px;
-    border-radius: var(--radius-pill);
-    background: rgba(15, 118, 110, 0.3);
-    color: #a7f3d0;
-    font-size: 0.72rem;
-    letter-spacing: 0.06em;
-}
-
-/* ===== Footer ===== */
+/* ============ */
+/*  FOOTER      */
+/* ============ */
 
 footer {
-    background: transparent;
-    color: var(--text-muted);
+    margin-top: 36px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border-soft);
     text-align: center;
-    padding: 10px 0 0;
-    font-size: 0.85rem;
-    margin-top: 28px;
-    border-top: 1px solid rgba(148, 163, 184, 0.35);
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    background: transparent;
 }
 
-/* ===== Responsive tweaks ===== */
+/* ================ */
+/*  RESPONSIVE      */
+/* ================ */
 
-@media (min-width: 720px) {
-    .intro {
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
-        gap: 22px;
-        text-align: left;
-    }
-}
-
-@media (max-width: 600px) {
-    header img {
-        width: 115px;
-        height: 115px;
-    }
-
+@media (max-width: 768px) {
     .container {
-        padding: 18px 14px 30px;
-        margin-top: 18px;
+        padding: 24px 18px 32px;
+        margin-top: 24px;
+    }
+
+    header h1 {
+        font-size: 2rem;
+    }
+
+    header img {
+        width: 160px;
+        height: 210px;
     }
 
     section {
-        padding: 16px 12px 18px;
+        margin-top: 28px;
     }
 }
